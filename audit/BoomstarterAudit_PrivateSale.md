@@ -226,9 +226,9 @@ We've suggested fixing of this  mechanism for prohibiting of running multiple in
 ```json(https://api.coinmarketcap.com/v1/ticker/ethereum/?convert=USD).0.price_usd```,
 which is both URL and data format dependent.
 
-We recommend to consider a mechanism to update the API connection string, 
- or a mechanism to provide a fallback switch to another API if the API changes (URL, data format) 
- or becomes unavailable for an extended period of time.
+We recommend considering the API connection string update mechanism, 
+ or another API fallback mechanism when API rejects request (URL, data format) 
+ or becomes unavailable for an long period.
 
 ## "Out of Bounds" Stop of Automatic Price Update
 
@@ -265,7 +265,7 @@ Function ```switchToNextSale(address _nextSale)``` in ```BoomstarterToken.sol```
  ```msg.sender``` is equal to ```_nextSale```. 
  This has same effect as if ```_nextSale``` is equal to zero (which is prohibited by ```validAddress``` modifier).
 
-We've recommended switching the two lines of function body
+We've recommended switching two lines of a function body
 ```
 m_sales[_nextSale] = true;
 m_sales[msg.sender] = false;
